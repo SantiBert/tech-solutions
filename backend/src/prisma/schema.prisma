@@ -1,0 +1,145 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id                      String         @id @default(uuid())
+  email                   String         @unique
+  full_name               String
+  phone_number            String?
+  created_at              DateTime       @default(now())
+  updated_at              DateTime?
+  deleted_at              DateTime?
+  is_active               Boolean        @default(true)
+  status_id               Int
+  password                Password?
+  validation              Validation?
+  status                  Status         @relation(fields: [status_id], references: [id])
+  session                 Session[]
+  movies                  ActorMovie[]
+  tvShows                 ActorTvShow[]
+  directed                Director[]
+  @@map("users")
+}
+
+model Password {
+  id                      Int             @id @default(autoincrement())
+  user_id                 String          @unique
+  hash                    String
+  created_at              DateTime        @default(now())
+  user                    User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("passwords")
+}
+
+model Session {
+  id                      Int              @id @default(autoincrement())
+  token                   String           @unique
+  user_id                 String
+  created_at              DateTime         @default(now())
+  user                    User             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Validation {
+  id                      Int               @id @default(autoincrement())
+  token                   String            @unique
+  user_id                 String            @unique
+  created_at              DateTime          @default(now())
+  user                    User              @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("validations")
+}
+
+model Status {
+  id                      Int              @id @default(autoincrement())
+  name                    String           @unique
+  users                   User[]
+
+  @@map("statuses")
+}
+
+
+model Movie {
+  id                      Int              @id @default(autoincrement())
+  title                   String
+  director                Director?        @relation(fields: [directorId], references: [id], onDelete: SetNull)
+  directorId              Int?
+  actors                  ActorMovie[]
+  createdAt               DateTime         @default(now())
+
+  @@map("movies")
+}
+
+model TVShow {
+  id                      Int              @id @default(autoincrement())
+  title                   String
+  seasons                 Season[]
+  actors                  ActorTvShow[]
+  createdAt               DateTime         @default(now())
+
+  @@map("tv_shows")
+}
+
+model ActorMovie {
+  movie_id                Int
+  movie                   Movie             @relation(fields: [movie_id], references: [id])
+  user_id                 String
+  user                    User              @relation(fields: [user_id], references: [id])
+
+  @@id([movie_id, user_id])
+  @@map("actor_movies")
+}
+
+model ActorTvShow {
+  tv_show_id              Int
+  tv_show                 TVShow            @relation(fields: [tv_show_id], references: [id])
+  user_id                 String
+  user                    User              @relation(fields: [user_id], references: [id])
+
+  @@id([tv_show_id, user_id])
+  @@map("actor_tv_shows")
+}
+
+model Episode {
+  id                      Int              @id @default(autoincrement())
+  number                  Int
+  season                  Season           @relation(fields: [seasonId], references: [id], onDelete: Cascade)
+  directorId              Int?        
+  seasonId                Int
+  director                Director?        @relation(fields: [directorId], references: [id], onDelete: SetNull)
+  createdAt               DateTime         @default(now())
+
+  @@map("episodies") 
+}
+
+model Director {
+  id                      Int              @id @default(autoincrement())
+  user_id                 String
+  user                    User             @relation(fields: [user_id], references: [id])
+  movies                  Movie[]
+  episodes                Episode[]
+  createdAt               DateTime         @default(now())
+
+  @@map("directors") 
+}
+
+model Season {
+  id                      Int              @id @default(autoincrement())
+  number                  Int
+  tvShow                  TVShow           @relation(fields: [tvShowId], references: [id], onDelete: Cascade)
+  tvShowId                Int
+  episodes                Episode[]
+  createdAt               DateTime         @default(now())
+
+  @@map("seasons") 
+}
