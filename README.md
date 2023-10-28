@@ -9,6 +9,9 @@ cd backend
 
 el repositorio ya cuenta con un archivo db con registros, lo que no es necesario realizar una conección a la base de datos o realizar las migraciones, aun así están en la carpeta src/prisma
 
+instalamos las dependencias:
+npm i
+
 para iniciar el servidor:
 npm run dev
 
@@ -16,6 +19,10 @@ una vez el servidor está corriendo ubicarse en la carpeta del frontend:
 
 cd .. && cd front
 
+instalamos las dependencias:
+npm i
+
+para iniciar el front:
 npm run start
 
 el fron comenzará a correr en el puerto 3000
