@@ -40,7 +40,7 @@ const HomePage = () => {
           <h2>Resultados:{data.length}</h2>
           <div className='row'>
             {data.map((item, index) => (
-              <div className="col-md-4">
+              <div className="col-md-4 p-2">
                 <div className="card text-white bg-primary">
                 <div class="card-header">{item.type}</div>
                 <div className="card-body">

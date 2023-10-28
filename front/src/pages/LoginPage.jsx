@@ -57,8 +57,8 @@ const LoginPage = () => {
                         />
                         {errors.password?.message && (<p className="text-danger">{errors.password?.message}</p>)}
                     </div>
-                    <div className='col-sm-10'>
-                        <button type='submit'>
+                    <div className='col-sm-10 p-4'>
+                        <button type='submit' className='btn btn-secondary'>
                             Entrar
                         </button>
                     </div>

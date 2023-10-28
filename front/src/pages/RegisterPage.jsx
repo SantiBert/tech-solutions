@@ -91,8 +91,8 @@ const RegisterPage = () => {
                             />
                             {errors.confirmPassword?.message && (<p className="text-danger">{errors.confirmPassword?.message}</p>)}
                         </div>
-                        <div className='col-sm-10'>
-                            <button type='submit'>
+                        <div className='col-sm-10 p-3'>
+                            <button type='submit' className='btn btn-secondary'>
                                 Crear cuenta
                             </button>
                         </div>

@@ -1,0 +1,954 @@
+{
+	"info": {
+		"_postman_id": "ce6e301c-204a-4faa-b798-64984c2981f1",
+		"name": "tech-solution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16834052"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\":\"Santiago Certero\",\n    \"email\":\"leodicaprio@gmail.com\",\n    \"phone_number\":\"+543416207112\",\n    \"password\":\"36602159\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/signup",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "santibertero@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "36602158",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activate account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hash\":\"8cbbe11d626d24050e7ab5ae6e4e5d110a08fc26fab1ea514d935a43576a0883869665e8bd101ed81e5704c2162433b6756208356e5fa33bed42a79d0cc21d1a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/activate_account",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"activate_account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verificate token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1M2IxMDI1LWQwMWEtNDcwYy1hM2ZmLTJiMmMyMjRmMmRmOCIsImlhdCI6MTY5ODQ0NDk4MiwiZXhwIjoxNjk4NDQ1NTgyfQ.3jtBPgbG4sA1PLFaRqtN4ECYGKKVWYmiFg43NJOhcEY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hash\":\"34f865e3403e0efedf7b9cd086ea583302d19bcfcea59bb4c8b29b229d32b41663c873498de2930d6d95bb2a34808a8ed45cb74e2c1db13386aa375512202d2f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/verificatete-token",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"verificatete-token"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"bpitt2@dsds.com\",\n    \"password\":\".tz&2%3X_qKVTs$\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/login",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1Y2Y0NmJhLTA4NjctNDBiOC1iN2FlLTUzNmRkM2Q5MGE5NiIsImlhdCI6MTY5ODQzMzYzMiwiZXhwIjoxNjk4NDM0MjMyfQ.ILFY-VHSTrRFqvQt458K_ckH6fSSu1hqAB1pgYxcwvk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/logout",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"santibertero22@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/reset_password_verify",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"reset_password_verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"santibertero22@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/reset_password_email",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"reset_password_email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password sms",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"santibertero22@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/reset_password_sms",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"reset_password_sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_password\":\"35602155\",\n    \"token\":\"2353f4e4173157ea043d347a7a713d9cd9980302ddcf169dca1f68043655f072b0d26c66317f6743cfb9c26d76b127259a8d7d890796f5baae388143afc6f9ff\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/change_password_email",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"change_password_email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password sms",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"santibertero22@gmail.com\",\n    \"new_password\":\"35602177\",\n    \"otp\":\"806368\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/change_password_sms",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"change_password_sms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actors",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/actors",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get actor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/actor/:idActor",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"actor",
+								":idActor"
+							],
+							"variable": [
+								{
+									"key": "idActor",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Ryan Gosling\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/actor",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"actor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/actor/:idActor",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"actor",
+								":idActor"
+							],
+							"variable": [
+								{
+									"key": "idActor",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Christian Bale\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/actor/:idActor",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"actor",
+								":idActor"
+							],
+							"variable": [
+								{
+									"key": "idActor",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Directors",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/directors",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"directors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get director",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/director/:idDirector",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"director",
+								":idDirector"
+							],
+							"variable": [
+								{
+									"key": "idDirector",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Gus Van San\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/director",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"director"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/actor/:idActor",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"actor",
+								":idActor"
+							],
+							"variable": [
+								{
+									"key": "idActor",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Christian Bale\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/film-maker/director/:idDirector",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"film-maker",
+								"director",
+								":idDirector"
+							],
+							"variable": [
+								{
+									"key": "idDirector",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMmZlNmI0LTgyMzEtNDI3Zi05MzVhLThiMmZkYzYyMmE4NCIsImlhdCI6MTY5ODMxNzQwMiwiZXhwIjoxNjk4MzE4MDAyfQ.WXH_SPuJ6B_HT9OJ8PxmRsdY2oCVmD8FNdRBBp1bLTg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/movies/all",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"movies",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all Filmography",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/movies/filmography?title=knsad",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"movies",
+								"filmography"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "knsad"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/movies/detail/:id",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"movies",
+								"detail",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/movies/delete/:id",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"movies",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Blade Runner\",\n    \"directorId\":8,\n    \"actorsIds\":[16,17,18]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/movies/edit/:id",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"movies",
+								"edit",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1M2IxMDI1LWQwMWEtNDcwYy1hM2ZmLTJiMmMyMjRmMmRmOCIsImlhdCI6MTY5ODQ2MjAwNiwiZXhwIjoxNjk4NDYyNjA2fQ.HKcTqKHIf13OY1oRCX_1z6e8bJuao-PkEmf3NAw_ipE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Misterio en la mansión ancestral\",\n    \"directorId\":\"4522c46f-ec79-4450-833f-bc21e49f63f9\",\n    \"actorsIds\":[\"414b7f0e-095c-45f6-99ec-f44ab0ccc04f\", \"55e70a62-7af4-47da-9e48-74bef81b3d2f\", \"20b34d39-4aed-4d62-81dd-3c67c92ea1ae\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/movies/create",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"movies",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tv Shows",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/tv-shows/all",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"tv-shows",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tv show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{improvein_local}}/api/tv-shows/detail/:id",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"tv-shows",
+								"detail",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/tv-shows/delete/:id",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"tv-shows",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Blade Runner III\",\n    \"actorsIds\":[16,17, 18],\n    \"seasons\":[\n        {\n            \"number\":1,\n            \"episodes\":[\n                {\n                    \"number\":1,\n                    \"directorId\":9\n                },\n                {\n                    \"number\":2,\n                    \"directorId\":10\n                }\n            ]\n        },\n        {\n            \"number\":2,\n            \"episodes\":[\n                {\n                    \"number\":1,\n                    \"directorId\":5\n                },\n                {\n                    \"number\":2,\n                    \"directorId\":5\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/tv-shows/edit/:id",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"tv-shows",
+								"edit",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"La mejor serie de hollywood\",\n    \"actorsIds\":[\"95cf46ba-0867-40b8-b7ae-536dd3d90a96\",\"6c507e56-0ed0-4414-9fb6-f0f07da1f9f7\", \"f53b1025-d01a-470c-a3ff-2b2c224f2df8\"],\n    \"seasons\":[\n        {\n            \"number\":1,\n            \"episodes\":[\n                {\n                    \"number\":1,\n                    \"directorId\":\"b116e3b6-5521-4f8a-97c2-df808485d6d9\"\n                },\n                {\n                    \"number\":2,\n                    \"directorId\":\"b116e3b6-5521-4f8a-97c2-df808485d6d9\"\n                }\n            ]\n        },\n        {\n            \"number\":2,\n            \"episodes\":[\n                {\n                    \"number\":1,\n                    \"directorId\":\"b116e3b6-5521-4f8a-97c2-df808485d6d9\"\n                },\n                {\n                    \"number\":2,\n                    \"directorId\":\"b116e3b6-5521-4f8a-97c2-df808485d6d9\"\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{improvein_local}}/api/tv-shows/create",
+							"host": [
+								"{{improvein_local}}"
+							],
+							"path": [
+								"api",
+								"tv-shows",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -58,8 +58,8 @@ const ActivateAcount = () => {
                 </textarea>
                 {errors.hash && ( <p className="text-danger">Hash es requerido</p> )}
             </div>
-            <div className='col-sm-10'>
-                <button type='submit'>
+            <div className='col-sm-10 p-3'>
+                <button type='submit' className='btn btn-secondary'>
                     Activar cuenta
                 </button>
             </div>
