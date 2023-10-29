@@ -13,10 +13,10 @@ const LoginPage = () => {
         register,
         handleSubmit,
         formState:{errors}
-    } = useForm();
-    const { signin, errors: loginErrors, isAuthenticated } = useAuth({
+    } = useForm({
         resolver: zodResolver(loginSchema),
     });
+    const { signin, errors: loginErrors, isAuthenticated } = useAuth();
 
     const navigate = useNavigate();
 
