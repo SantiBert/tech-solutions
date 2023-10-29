@@ -78,4 +78,13 @@ export class UserService{
             where:{ id: { in: actorIds }}
         })
     }
+    public async findByName(name:string): Promise<Partial<User>[]| null>{
+      return await this.user.findMany({
+          select:{
+              id:true,
+              full_name:true          
+          },
+          where:{ full_name: { contains: name }}
+      })
+  }
 }
